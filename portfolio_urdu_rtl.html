@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>پورٹ فولیو – محمد مناظر حسین</title>
+  <meta name="description" content="صرف HTML اور CSS سے بنایا گیا صاف ستھرا، ذمہ دار پورٹ فولیو۔" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* جمیل نوری نستعلیق فونٹ (اگر سسٹم میں انسٹال ہو) */
+    @font-face{
+      font-family: 'Jameel Noori Nastaleeq';
+      src: local('Jameel Noori Nastaleeq'), local('Jameel Noori'),
+           local('JameelNooriNastaleeq'), local('Jameel Noori Kasheeda');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root{
+      --bg: #0b0d10;
+      --bg-soft:#111418;
+      --text:#e8eef5;
+      --muted:#a9b3c1;
+      --brand:#5b8cff;
+      --brand-2:#7c5bff;
+      --card:#12161b;
+      --border:#1e232b;
+      --ring: 0 0 0 3px rgba(91,140,255,.25);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:'Jameel Noori Nastaleeq','Noto Nastaliq Urdu',serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.8;
+      direction: rtl;
+      text-align: right;
+    }
+
+    a{color:var(--text); text-decoration:none}
+    img{max-width:100%; display:block}
+
+    .container{width:min(1100px, 92%); margin-inline:auto}
+
+    header{
+      position:sticky; top:0; z-index:50; backdrop-filter:saturate(140%) blur(10px);
+      background:var(--bg-soft); border-bottom:1px solid var(--border);
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 0}
+    .logo{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.4px}
+    .logo .dot{width:10px; height:10px; border-radius:999px; background:linear-gradient(135deg,var(--brand),var(--brand-2))}
+    nav ul{list-style:none; display:flex; gap:18px; padding:0; margin:0}
+    nav a{padding:10px 12px; border-radius:12px; color:var(--muted)}
+
+    .hero{display:grid; grid-template-columns:1.2fr .8fr; align-items:center; gap:40px; padding:72px 0}
+    .tag{display:inline-flex; padding:6px 10px; border:1px solid var(--border); border-radius:999px; font-size:14px; color:var(--muted);}
+    .title{font-size:clamp(28px, 5vw, 48px); line-height:1.3; margin:14px 0}
+    .subtitle{color:var(--muted); font-size:18px; max-width:60ch}
+    .cta{display:flex; gap:12px; margin-top:26px}
+    .btn{padding:12px 16px; border-radius:14px; border:1px solid var(--border); background:var(--bg-soft); color:var(--text); font-weight:600}
+    .btn.primary{background:linear-gradient(135deg, var(--brand), var(--brand-2)); border:0}
+
+    .hero-ill{
+      aspect-ratio:1/1; border-radius:24px; border:1px solid var(--border); overflow:hidden; display:grid; place-items:center; box-shadow:var(--shadow)
+    }
+    .hero-ill img {
+      max-width: 60%;
+      height: auto;
+    }
+    @media (max-width: 980px) {
+      .hero-ill img { max-width: 80%; }
+    }
+    @media (max-width: 620px) {
+      .hero-ill img { max-width: 100%; }
+    }
+
+    section{padding:64px 0}
+    .section-title{font-size:26px; margin:0 0 10px}
+    .section-sub{color:var(--muted); margin:0 0 24px}
+
+    .about{display:grid; grid-template-columns:1fr 1fr; gap:24px}
+    .about-card{background:var(--card); border:1px solid var(--border); padding:22px; border-radius:var(--radius); box-shadow:var(--shadow)}
+
+    .skills{display:grid; grid-template-columns:repeat(4, 1fr); gap:16px}
+    .skill{background:var(--card); border:1px solid var(--border); padding:16px; border-radius:16px}
+    .bar{height:8px; background:var(--bg-soft); border:1px solid var(--border); border-radius:999px; overflow:hidden; margin-top:10px}
+    .bar > span{display:block; height:100%; width:var(--w); background:linear-gradient(135deg,var(--brand),var(--brand-2))}
+
+    .grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:18px}
+    .card{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); display:flex; flex-direction:column}
+    .thumb{aspect-ratio:16/10; background:#000}
+    .card-body{padding:16px}
+    .tags{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0 0}
+    .tag-pill{font-size:12px; color:var(--muted); border:1px solid var(--border); padding:6px 10px; border-radius:999px}
+
+    /* Projects images responsive */
+    .grid .thumb img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    form{display:grid; gap:12px}
+    input, textarea{width:100%; padding:12px 14px; border:1px solid var(--border); background:var(--bg-soft); color:var(--text); border-radius:12px; outline:none}
+
+    footer{padding:34px 0; border-top:1px solid var(--border); color:var(--muted)}
+
+    @media (max-width: 980px){
+      .hero{grid-template-columns:1fr; padding:44px 0}
+      .about{grid-template-columns:1fr}
+      .skills{grid-template-columns:repeat(2, 1fr)}
+      .grid{grid-template-columns:repeat(2, 1fr)}
+    }
+    @media (max-width: 620px){
+      nav ul{display:none}
+      .skills{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#home" class="logo"><span class="dot"></span> رضوی گرافکس</a>
+      <nav>
+        <ul>
+          <li><a href="#about">تعارف</a></li>
+          <li><a href="#skills">مہارتیں</a></li>
+          <li><a href="#projects">منصوبے</a></li>
+          <li><a href="#contact">رابطہ</a></li>
+          <li><a href="#">سوانح</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home" class="container">
+    <section class="hero">
+      <div>
+        <span class="tag">کام کے لیے دستیاب</span>
+        <h1 class="title">السلام علیکم! میں <span style="background:linear-gradient(135deg,var(--brand),var(--brand-2)); -webkit-background-clip:text; background-clip:text; color:transparent">مناظر حسین</span> — ایک فرنٹ اینڈ ڈویلپر ہوں جو صاف ستھری، تیز اور قابلِ رسائی ویب سائٹس بناتا ہوں۔</h1>
+        <p class="subtitle">میں semantic HTML اور جدید CSS کے ساتھ ذمہ دار (responsive) انٹرفیس بناتا ہوں۔ بھاری فریم ورک کے بغیر — ہلکا پھلکا اور قابلِ نگہداشت کوڈ۔</p>
+        <div class="cta">
+          <a class="btn primary" href="#projects">منصوبے دیکھیں</a>
+          <a class="btn ghost" href="#contact">رابطہ کریں</a>
+        </div>
+      </div>
+      <div class="hero-ill">
+        <img src="images/project1.jpg.png" alt="لوگو">
+      </div>
+    </section>
+
+    <section id="about">
+      <h2 class="section-title">تعارف</h2>
+      <p class="section-sub">میرے بارے میں مختصر تعارف اور میرا طریقۂ کار۔</p>
+      <div class="about">
+        <article class="about-card">
+          <h3>حیات</h3>
+          <p>میں ایسا ڈویلپر ہوں جو صارف دوست انٹرفیس تیار کرتا ہے۔ میں دسترس پذیری، کارکردگی اور باریک تفصیلات کو اہمیت دیتا ہوں۔</p>
+        </article>
+        <article class="about-card">
+          <h3>نمایاں نقاط</h3>
+          <ul>
+            <li>3+ سال سے ذمہ دار ویب سائٹس تیار کر رہا ہوں</li>
+            <li>ڈیزائن اور UX پر مضبوط گرفت</li>
+            <li>Semantic HTML اور جدید CSS</li>
+            <li>بنیادی SEO اور بہتر کارکردگی</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2 class="section-title">مہارتیں</h2>
+      <p class="section-sub">وہ ٹولز اور ٹیکنالوجیز جنہیں میں باقاعدگی سے استعمال کرتا ہوں۔</p>
+      <div class="skills">
+        <div class="skill"><b>ایچ ٹی ایم ایل</b><div class="bar"><span style="--w:95%"></span></div></div>
+        <div class="skill"><b>سی ایس ایس</b><div class="bar"><span style="--w:92%"></span></div></div>
+        <div class="skill"><b>ریسپانسیو ڈیزائن</b><div class="bar"><span style="--w:90%"></span></div></div>
+        <div class="skill"><b>دسترس پذیری</b><div class="bar"><span style="--w:85%"></span></div></div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2 class="section-title">منصوبے</h2>
+      <p class="section-sub">منتخب کام — اپنی اصل اسکرین شاٹس اور لنکس شامل کریں۔</p>
+      <div class="grid">
+        <article class="card">
+          <div class="thumb">
+            <img src="images/jamia-darul-ishaat1.webp" alt="Darul Isha'at Project">
+          </div>
+          <div class="card-body">
+            <h3>دارالاشاعت</h3>
+            <p>اسلامی اشاعتی اور تعلیمی پلیٹ فارم۔</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="thumb">
+            <img src="images/jamia-darul-qaza1.webp" alt="Darul Qaza Project">
+          </div>
+          <div class="card-body">
+            <h3>دارالقضاء</h3>
+            <p>شرعی رہنمائی اور قانونی حل کے لیے ویب سائٹ۔</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="thumb">
+            <img src="images/jamia-darul-ifta1.webp" alt="Darul Ifta Project">
+          </div>
+          <div class="card-body">
+            <h3>دارالافتاء جامعہ</h3>
+            <p>آن لائن فتویٰ اور رہنمائی فراہم کرنے والا پلیٹ فارم۔</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 class="section-title">رابطہ</h2>
+      <p class="section-sub">پیغام چھوڑیں — فارم سادہ ہے، بعد میں بیک اینڈ سے جوڑا جا سکتا ہے۔</p>
+      <div class="about">
+        <div class="about-card">
+          <form action="mailto:you@example.com" method="post" enctype="text/plain">
+            <label><span>نام</span><input type="text" name="name" placeholder="اپنا پورا نام" required></label>
+            <label><span>ای میل</span><input type="email" name="email" placeholder="you@example.com" required></label>
+            <label><span>پیغام</span><textarea name="message" rows="5" placeholder="میں کس طرح مدد کر سکتا ہوں؟" required></textarea></label>
+            <button class="btn primary" type="submit">بھیجیں</button>
+          </form>
+        </div>
+        <div class="about-card">
+          <h3>دیگر مقامات</h3>
+          <ul>
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">LinkedIn</a></li>
+            <li><a href="#">Twitter/X</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> رضوی گرافکس — ویب ڈویلپر۔
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear()</script>
+</body>
+</html>
